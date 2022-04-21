@@ -8,7 +8,114 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body>
-    heyya
+<body class='flex'>
+   {% comment %} sidebar {% endcomment %}
+    <div class="flex flex-col h-screen justify-between border-r border-gray-200">
+        <div class="flex flex-col p-4 gap-4 ">
+            <div class="inline-flex space-x-5 items-center justify-start px-2.5 pt-2.5 pb-10 bg-white rounded-lg">
+                <img class="w-9 h-full " src="https://cdn.discordapp.com/attachments/955898608589344778/966685050777243718/unknown.png"/>
+                <p class="text-sm font-bold leading-normal text-gray-800">HELP-DESK</p>
+            </div>
+            <div class="inline-flex space-x-2.5 items-center justify-start w-60 p-2.5 bg-white rounded-lg hover:bg-gray-200">
+                <img class="w-6 h-full " src="https://via.placeholder.com/24x24"/>
+                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
+            </div>
+        </div>
+        <div class='flex flex-col p-4 gap-4 '>
+            <div class="inline-flex space-x-2.5 items-center justify-start w-60 p-2.5 bg-white rounded-lg hover:bg-gray-200">
+                <img class="w-6 h-full " src="https://via.placeholder.com/24x24"/>
+                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} faq {% endcomment %}
+    <div class="p-4 px-8  pt-48 flex flex-col border-r border-gray-200">
+        <div class="flex flex-col gap-6">
+            <p class="text-2xl font-bold leading-9 text-gray-800">Frequently Asked</p>
+            <div class="inline-flex gap-2.5 shadow items-center justify-between w-96 p-3 bg-white rounded-lg hover:bg-gray-200">
+                <p class="text-lg font-medium leading-normal text-gray-600">Start searching . . .</p>
+                <img class="w-6 h-full " src="https://via.placeholder.com/24x24"/>
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 mt-8 h-full ">
+            <div class="inline-flex space-x-2.5 items-center justify-between w-full p-2.5 bg-white rounded-lg hover:bg-gray-200">
+                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16L16 12L12 8" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H16" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+            </div>
+            <div class="inline-flex space-x-2.5 items-center justify-between w-full p-2.5 bg-white rounded-lg hover:bg-gray-200">
+                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16L16 12L12 8" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H16" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="p-8 flex flex-col w-full">
+        <div class="flex gap-4 justify-between w-full">
+            <div class="flex gap-4">
+                <div class="p-4 font-semibold hover:bg-blue-200 rounded-lg">
+                    Academics
+                </div>
+                <div class="p-4 font-semibold hover:bg-blue-200 rounded-lg">
+                    Admission
+                </div>
+                <div class="p-4 font-semibold hover:bg-blue-200 rounded-lg">
+                    Ragging
+                </div>
+                <div class="p-4 font-semibold hover:bg-blue-200 rounded-lg">
+                    Others
+                </div>
+            </div>
+            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-violet-500 rounded-lg">
+                <p class="text-lg font-bold leading-9 text-white">Raise Ticket</p>
+                <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.5 6.125V21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5.625 14H21.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="flex flex-col gap-6 pt-8">
+            <div class="flex flex-col p-4 shadow shadow-xl gap-4 rounded-xl">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.29114 3.7384H20.2911C20.8216 3.7384 21.3303 3.94912 21.7054 4.32419C22.0804 4.69926 22.2911 5.20797 22.2911 5.7384V11.7384C22.2911 14.3906 21.2376 16.9341 19.3622 18.8095C17.4868 20.6848 14.9433 21.7384 12.2911 21.7384C10.9779 21.7384 9.67757 21.4797 8.46431 20.9772C7.25105 20.4747 6.14866 19.7381 5.22008 18.8095C3.34471 16.9341 2.29114 14.3906 2.29114 11.7384V5.7384C2.29114 5.20797 2.50186 4.69926 2.87693 4.32419C3.252 3.94912 3.76071 3.7384 4.29114 3.7384V3.7384Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.29114 10.7384L12.2911 14.7384L16.2911 10.7384" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class='font-semibold'>Ticket #23424</span>     
+                    </div>
+                    <div class="font-semibold text-gray-500">26 Jan</div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-2xl font-bold">Request for extra doubt session</div>
+                    <div class="font-semibold text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quam! Molestias voluptatibus facere assumenda ipsum sit officiis est. Quae sed voluptatibus tenetur quaerat modi fuga quisquam pariatur facilis, minus tempora?
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="flex gap-4">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="15" cy="15" r="15" fill="#E7E7E7"/>
+                            <path d="M20.3333 21V19.6667C20.3333 18.9594 20.0524 18.2811 19.5523 17.781C19.0522 17.281 18.3739 17 17.6667 17H12.3333C11.6261 17 10.9478 17.281 10.4477 17.781C9.94762 18.2811 9.66667 18.9594 9.66667 19.6667V21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 14.3333C16.4728 14.3333 17.6667 13.1394 17.6667 11.6667C17.6667 10.1939 16.4728 9 15 9C13.5272 9 12.3333 10.1939 12.3333 11.6667C12.3333 13.1394 13.5272 14.3333 15 14.3333Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-semibold">HOD Science</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>
