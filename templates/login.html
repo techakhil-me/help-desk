@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Contact Form Template</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class>
+        <div class="lg:flex">
+            <div class="lg:w-1/2 xl:max-w-screen-sm">
+                <div class="py-12 bg-indigo-100 lg:bg-white flex justify-center lg:justify-start lg:px-12">
+                    <div class="cursor-pointer flex items-center">
+                        <div>
+                           <img src="https://cdn.discordapp.com/attachments/955898608589344778/966685050777243718/unknown.png" alt="">
+                        </div>
+                        <div class="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">Help-Desk</div>
+                    </div>
+                </div>
+                <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
+                    <h2 class="text-center text-4xl text-indigo-900 font-display font-semibold lg:text-left xl:text-5xl
+                    xl:text-bold">Log in</h2>
+                    <div class="mt-12">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <div class="text-sm font-bold text-gray-700 tracking-wide">Username</div>
+                                <input name="username" class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-violet-500" type="" placeholder="john doe">
+                            </div>
+                            <div class="mt-8">
+                                <div class="flex justify-between items-center">
+                                    <div class="text-sm font-bold text-gray-700 tracking-wide">
+                                        Password
+                                    </div>
+                                    <div>
+                                        <a class="text-xs font-display font-semibold text-indigo-600 hover:text-indigo-800
+                                        cursor-pointer">
+                                            Forgot Password?
+                                        </a>
+                                    </div>
+                                </div>
+                                <input name="password" class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="passworda" placeholder="Enter your password">
+                            </div>
+                            <div class="mt-10">
+                                <button type="submit" class="bg-violet-500 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                                shadow-lg">
+                                    Log In
+                                </button>
+                            </div>
+                        </form>
+                        <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                            Don't have an account ? <a class="cursor-pointer text-violet-500 hover:text-indigo-800">Sign up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
+                <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
+                    <img class="transform scale-150" src="https://cdn.discordapp.com/attachments/955898608589344778/966823084592078858/unknown.png" alt="">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

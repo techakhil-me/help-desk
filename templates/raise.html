@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class='flex overflow-y-hidden'>
+<body class='flex'>
 <style>
     .sidebar p  {
         overflow:hidden;
@@ -18,19 +18,6 @@
     }
     .sidebar:hover p {
         width:12rem;
-    }
-    ::-webkit-scrollbar {
-        display: none;
-      }
-
-    .high {
-        background:#FDEDEE;
-    }
-    .medium {
-        background:#ADC7FF;
-    }
-    .low{
-        background:#DDFFEE;
     }
 </style>
 
@@ -43,14 +30,12 @@
                 <p class="text-sm font-bold leading-normal text-gray-800">HELP-DESK</p>
             </div>
             {% if request.user.is_staff %} 
-            <a href="/">
             <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
             </div>
-        </a>
             <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M23 4V10H17" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -127,79 +112,83 @@
     <div class="p-8 flex flex-col w-full">
         <div class="flex gap-4 justify-between w-full">
             <div class="flex gap-4">
-                <div class="p-4 uppercase font-semibold hover:bg-blue-200 rounded-lg">
-                    All
+                <div class="p-4 text-4xl font-semibold rounded-lg">
+                    Raise Ticket
                 </div>
-                {% for category in categories %} 
-                <div class="p-4 uppercase font-semibold hover:bg-blue-200 rounded-lg">
-                    {{category}}
-                </div>
-                {% endfor %}
-               
             </div>
-            <a href="/raise">
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-violet-500 rounded-lg">
-                <p class="text-lg font-bold leading-9 text-white">Raise Ticket</p>
-                <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 6.125V21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5.625 14H21.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </a>
+            <a href="/"><div class="inline-flex space-x-2.5 items-center justify-start p-2.5 py-0 bg-violet-500 rounded-lg">
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.1437 18.9412L9.14374 12.9412L15.1437 6.94119" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>   
+                <p class="text-lg font-bold leading-loose text-white pr-4">back</p>
+            </div></a>
         </div>
-        {% comment %} tickets {% endcomment %}
-       
-        {% comment %} tickets {% endcomment %}
         
-        <div class="flex flex-col gap-6 pt-8 overflow-y-scroll" style="height:900px;">
-         
-            {% for ticket in tickets  %}
-            <a href="/ticket?id={{ticket.id}}">
-            <div class="flex flex-col p-4 shadow shadow-xl hover:shadow-2xl cursor-pointer gap-4 rounded-xl">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.29114 3.7384H20.2911C20.8216 3.7384 21.3303 3.94912 21.7054 4.32419C22.0804 4.69926 22.2911 5.20797 22.2911 5.7384V11.7384C22.2911 14.3906 21.2376 16.9341 19.3622 18.8095C17.4868 20.6848 14.9433 21.7384 12.2911 21.7384C10.9779 21.7384 9.67757 21.4797 8.46431 20.9772C7.25105 20.4747 6.14866 19.7381 5.22008 18.8095C3.34471 16.9341 2.29114 14.3906 2.29114 11.7384V5.7384C2.29114 5.20797 2.50186 4.69926 2.87693 4.32419C3.252 3.94912 3.76071 3.7384 4.29114 3.7384V3.7384Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M8.29114 10.7384L12.2911 14.7384L16.2911 10.7384" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class='font-semibold'>Ticket #{{ticket.id}} - {{ticket.author}} </span>     
-                    </div>
-                    <div class="font-semibold text-gray-500">{{ticket.date}}</div>
+        {% comment %} tickets {% endcomment %}
+        {% comment %} {% for ticket in tickets  %} {% endcomment %}
+        <form method="POST" class="h-full">
+            {% csrf_token %}
+        <div class="flex flex-col gap-8 pt-8 text-gray-900 justify-center h-full">
+            <div class="flex gap-8">
+                <div class="text-gray-400 flex gap-2 flex-col w-full">
+                    <div class="font-semibold">Subject</div>
+                    <input required class='text-gray-900 shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="subject"/>
                 </div>
-                <div class="flex flex-col">
-                    <div class="text-2xl font-bold">{{ticket.subject}}</div>
-                    <div class="font-semibold text-gray-500">
-                        {{ticket.description}}
-                    </div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="flex gap-4">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="15" cy="15" r="15" fill="#E7E7E7"/>
-                            <path d="M20.3333 21V19.6667C20.3333 18.9594 20.0524 18.2811 19.5523 17.781C19.0522 17.281 18.3739 17 17.6667 17H12.3333C11.6261 17 10.9478 17.281 10.4477 17.781C9.94762 18.2811 9.66667 18.9594 9.66667 19.6667V21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M15 14.3333C16.4728 14.3333 17.6667 13.1394 17.6667 11.6667C17.6667 10.1939 16.4728 9 15 9C13.5272 9 12.3333 10.1939 12.3333 11.6667C12.3333 13.1394 13.5272 14.3333 15 14.3333Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="font-semibold">{{ticket.category}}</span>
-                    </div>
-                    <div class="flex items-center gap-4"><div class="text-lg font-semibold">{{ticket.status}}</div><div class="inline-flex gap-2 items-center justify-start px-2.5 py-1 {{ticket.priority}} rounded-full">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 10C10.5773 10 12.6667 7.91068 12.6667 5.33335C12.6667 2.75602 10.5773 0.666687 8 0.666687C5.42267 0.666687 3.33333 2.75602 3.33333 5.33335C3.33333 7.91068 5.42267 10 8 10Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M5.47334 9.26002L4.66667 15.3334L8 13.3334L11.3333 15.3334L10.5267 9.25336" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                            
-                        <p class="text-sm font-medium leading-none text-gray-800 ">{{ticket.priority}} priority</p>
-                    </div>
-                </div>
+                <div class="text-gray-400 flex gap-2 flex-col">
+                    <div class="font-semibold">Category</div>
+                    <select required class='category capitalize text-gray-900 shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="category">
+                        <option selected disabled>select category</option>
+                        {% for category,pr in categories.items %}
+                        <option  value="{{category}}">{{category}}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
-        </a>
-            {% endfor %}
+           
+            <div class="text-gray-400 flex gap-2 flex-col">
+                <div class="font-semibold">Description</div>
+                <textarea required class='text-gray-900 shadow-xl p-8 inline-flex text-xl h-48 gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Describe your issue in brief...." type="text" name="description"></textarea>
+            </div>
+            <div class="flex gap-8">
+            <div class="text-gray-400 flex gap-2 flex-col">
+                <div class="font-semibold">Attachments (if any)</div>
+                <input class='text-gray-900 shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Describe your issue in brief...." type="file" name="file"></textarea>
+            </div>
+            <div class="text-gray-400 flex gap-2 flex-col">
+                <div class="font-semibold">Priority</div>
+                <select required class='priority text-gray-900 shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="priority">
+                    <option selected disabled>select priority</option>
+                    <option value="high">high</option>
+                    <option value="medium">medium</option>
+                    <option selected value="low">low</option>
+                </select>
+            </div>
+        </div>
+           
+            <div class="w-full flex items-center justify-center">
+                <button type="submit" class=" max-w-2xl  bg-violet-500 text-2xl text-gray-100 p-4 w-full rounded-full tracking-wide
+                                font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                                shadow-lg">
+                                    Raise Ticket
+                                </button>
+            </div>
             
         </div>
-        
-       
+    </form>
+        {% comment %} {% endfor %} {% endcomment %}
+      
     </div>
 
+    <script type="text/javascript"> 
+        function changePriority(){
+            for (let child in document.querySelector('.priority').children){
+                child.selected=false
+                if (child.value == priorities[document.querySelector('.category').value]){
+                    child.selected = true
+                }
+            }
 
+        }
+     </script>
 </body>
 </html>

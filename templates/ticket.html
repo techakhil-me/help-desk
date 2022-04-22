@@ -89,73 +89,10 @@
         </div>
     </div>
 
-    {% if not request.user.is_staff %} 
-    {% comment %} faq {% endcomment %}
-    <div class="p-4 px-8  pt-48 flex flex-col border-r border-gray-200">
-        <div class="flex flex-col gap-6">
-            <p class="text-2xl font-bold leading-9 text-gray-800">Frequently Asked</p>
-            <div class="inline-flex gap-2.5 shadow items-center justify-between w-96 p-3 bg-white rounded-lg hover:bg-gray-200">
-                <p class="text-lg font-medium leading-normal text-gray-600">Start searching . . .</p>
-                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.8444 19.047C16.2626 19.047 19.8444 15.4652 19.8444 11.047C19.8444 6.62869 16.2626 3.04697 11.8444 3.04697C7.42608 3.04697 3.84436 6.62869 3.84436 11.047C3.84436 15.4652 7.42608 19.047 11.8444 19.047Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M21.8444 21.047L17.4944 16.697" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg> 
-            </div>
-        </div>
-        <div class="flex flex-col gap-2 mt-8 h-full ">
-            <div class="inline-flex space-x-2.5 items-center justify-between w-full p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 16L16 12L12 8" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 12H16" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="inline-flex space-x-2.5 items-center justify-between w-full p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 16L16 12L12 8" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 12H16" stroke="#8C79F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-    {% endif %}
 
-    {% comment %} categories  {% endcomment %}
-    <div class="p-8 flex flex-col w-full">
-        <div class="flex gap-4 justify-between w-full">
-            <div class="flex gap-4">
-                <div class="p-4 uppercase font-semibold hover:bg-blue-200 rounded-lg">
-                    All
-                </div>
-                {% for category in categories %} 
-                <div class="p-4 uppercase font-semibold hover:bg-blue-200 rounded-lg">
-                    {{category}}
-                </div>
-                {% endfor %}
-               
-            </div>
-            <a href="/raise">
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-violet-500 rounded-lg">
-                <p class="text-lg font-bold leading-9 text-white">Raise Ticket</p>
-                <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 6.125V21.875" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M5.625 14H21.375" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </a>
-        </div>
-        {% comment %} tickets {% endcomment %}
-       
-        {% comment %} tickets {% endcomment %}
-        
-        <div class="flex flex-col gap-6 pt-8 overflow-y-scroll" style="height:900px;">
-         
-            {% for ticket in tickets  %}
-            <a href="/ticket?id={{ticket.id}}">
-            <div class="flex flex-col p-4 shadow shadow-xl hover:shadow-2xl cursor-pointer gap-4 rounded-xl">
+    <div class="p-8 flex  w-full h-screen p-4">
+        <div class="flex flex-col gap-6 h-full ">
+            <div class="flex h-full flex-col p-4 justify-between shadow shadow-xl hover:shadow-2xl cursor-pointer gap-4 rounded-xl">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-2">
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -172,6 +109,51 @@
                         {{ticket.description}}
                     </div>
                 </div>
+
+                {% if request.user.is_staff %} 
+                <form class="flex justify-between items-center" method="POST">
+                    {% csrf_token %}--
+                    <div class="flex gap-4">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="15" cy="15" r="15" fill="#E7E7E7"/>
+                            <path d="M20.3333 21V19.6667C20.3333 18.9594 20.0524 18.2811 19.5523 17.781C19.0522 17.281 18.3739 17 17.6667 17H12.3333C11.6261 17 10.9478 17.281 10.4477 17.781C9.94762 18.2811 9.66667 18.9594 9.66667 19.6667V21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 14.3333C16.4728 14.3333 17.6667 13.1394 17.6667 11.6667C17.6667 10.1939 16.4728 9 15 9C13.5272 9 12.3333 10.1939 12.3333 11.6667C12.3333 13.1394 13.5272 14.3333 15 14.3333Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-semibold">{{ticket.category}}</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-lg font-semibold">
+                            {% comment %} {{ticket.status}} {% endcomment %}
+                            <select required class='priority text-gray-900 inline-flex  gap-2.5 items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="status">
+                                <option value="{{stArr.0}}">{{stArr.0}}</option>
+                                <option value="{{stArr.1}}">{{stArr.1}}</option>
+                                <option selected value="{{stArr.2}}">{{stArr.2}}</option>
+                                
+                            </select>
+                        </div>
+                    <div class="inline-flex gap-2 items-center justify-start px-2.5 py-1 {{ticket.priority}} rounded-full">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10C10.5773 10 12.6667 7.91068 12.6667 5.33335C12.6667 2.75602 10.5773 0.666687 8 0.666687C5.42267 0.666687 3.33333 2.75602 3.33333 5.33335C3.33333 7.91068 5.42267 10 8 10Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.47334 9.26002L4.66667 15.3334L8 13.3334L11.3333 15.3334L10.5267 9.25336" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                            
+                        <div class="text-gray-400 flex gap-2 flex-col">
+                            {% comment %} <div class="font-semibold">Priority</div> {% endcomment %}
+                            <select required class='priority text-gray-900 inline-flex  gap-2.5 items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="priority">
+                                <option value="{{prArr.0}}">{{prArr.0}}</option>
+                                <option value="{{prArr.1}}">{{prArr.1}}</option>
+                                <option selected value="{{prArr.2}}">{{prArr.2}}</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <input type="text" class="hidden" name="id" value="{{ticket.id}}"/>
+                    <button type="submit" class='priority text-white font-semibold shadow-xl inline-flex  gap-2.5  items-center justify-between p-3 bg-white rounded-lg bg-violet-600'>
+                        Save                        
+                    </button>
+
+                </form>
+                {% else %}
                 <div class="flex justify-between">
                     <div class="flex gap-4">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,11 +172,9 @@
                         <p class="text-sm font-medium leading-none text-gray-800 ">{{ticket.priority}} priority</p>
                     </div>
                 </div>
+                {% endif %}
                 </div>
-            </div>
-        </a>
-            {% endfor %}
-            
+            </div>            
         </div>
         
        
