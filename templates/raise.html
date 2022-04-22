@@ -23,56 +23,70 @@
 
 
    {% comment %} sidebar {% endcomment %}
-    <div class="sidebar flex flex-col h-screen justify-between border-r border-gray-200">
-        <div class="flex flex-col p-4 gap-4 ">
-            <div class="inline-flex space-x-5 items-center justify-start px-2.5 pt-2.5 pb-10 bg-white rounded-lg">
-                <img class="w-9 h-9 object-contain" src="https://cdn.discordapp.com/attachments/955898608589344778/966685050777243718/unknown.png"/>
-                <p class="text-sm font-bold leading-normal text-gray-800">HELP-DESK</p>
-            </div>
-            {% if request.user.is_staff %} 
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
-            </div>
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M23 4V10H17" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M1 20V14H7" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3.51 9.00001C4.01717 7.5668 4.87913 6.28542 6.01547 5.27543C7.1518 4.26545 8.52547 3.55978 10.0083 3.22427C11.4911 2.88877 13.0348 2.93436 14.4952 3.35679C15.9556 3.77922 17.2853 4.56473 18.36 5.64001L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1113 13.9917 20.7758C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
-                <p class="text-sm font-medium leading-normal text-gray-800">Active Tickets</p>
-            </div>
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 12H18" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M6 12H2" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 6V2" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 22V18" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
-                <p class="text-sm font-medium leading-normal text-gray-800">Open Tickets</p>
-            </div>
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 4L12 14.01L9 11.01" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <p class="text-sm font-medium leading-normal text-gray-800">Closed Tickets</p>
-            </div>
-            {% endif %}
-            
+   <div class="sidebar flex flex-col h-screen justify-between border-r border-gray-200">
+    <div class="flex flex-col p-4 gap-4 ">
+        <div class="inline-flex space-x-5 items-center justify-start px-2.5 pt-2.5 pb-10 bg-white rounded-lg">
+            <img class="w-9 h-9 object-contain" src="https://cdn.discordapp.com/attachments/955898608589344778/966685050777243718/unknown.png"/>
+            <p class="text-sm font-bold leading-normal text-gray-800">N-GAGE</p>
         </div>
-        <div class='flex flex-col p-4 gap-4 '>
-            <a href="/logout">
-            <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg">
-                <img class="w-9 h-9 object-contain rounded-full " src="https://picsum.photos/200"/>
-                <p class="text-sm font-medium leading-normal text-gray-800 flex flex-col">logout</p>
-            </div>
-        </a>
+        {% if request.user.is_staff %} 
+        <a href="/">
+        <div class="inline-flex space-x-2.5 items-center justify-between p-2.5 bg-white rounded-lg hover:bg-gray-200">
+            <div class="flex gap-2.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="text-sm font-medium leading-normal text-gray-800">All Tickets</p>
         </div>
+        <div>{{total}}</div>
+        </div>
+    </a>
+        <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
+            <div class="flex gap-2.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 4V10H17" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M1 20V14H7" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3.51 9.00001C4.01717 7.5668 4.87913 6.28542 6.01547 5.27543C7.1518 4.26545 8.52547 3.55978 10.0083 3.22427C11.4911 2.88877 13.0348 2.93436 14.4952 3.35679C15.9556 3.77922 17.2853 4.56473 18.36 5.64001L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1113 13.9917 20.7758C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                    
+            <p class="text-sm font-medium leading-normal text-gray-800">Active Tickets</p>
+        </div>
+        <div>{{active}}</div>
+        </div>
+        <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
+            <div class="flex gap-2.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 12H18" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 12H2" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 6V2" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 22V18" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                    
+            <p class="text-sm font-medium leading-normal text-gray-800">Open Tickets</p>
+        </div>
+        <div>{{open}}</div>
+        </div>
+        <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg hover:bg-gray-200">
+            <div class="flex gap-2.5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="#1F2937" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="text-sm font-medium leading-normal text-gray-800">Closed Tickets</p>
+        </div>
+        <div>{{closed}}</div>
+        </div>
+        {% endif %}
+        
     </div>
+    <div class='flex flex-col p-4 gap-4 '>
+        <a href="/logout">
+        <div class="inline-flex space-x-2.5 items-center justify-start p-2.5 bg-white rounded-lg">
+            <img class="w-9 h-9 object-contain rounded-full " src="https://picsum.photos/200"/>
+            <p class="text-sm font-medium leading-normal text-gray-800 flex flex-col">logout</p>
+        </div>
+    </a>
+    </div>
+</div>
 
     {% if not request.user.is_staff %} 
     {% comment %} faq {% endcomment %}
@@ -132,7 +146,7 @@
             <div class="flex gap-8">
                 <div class="text-gray-400 flex gap-2 flex-col w-full">
                     <div class="font-semibold">Subject</div>
-                    <input required class='text-gray-900 shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="subject"/>
+                    <input required class='text-gray-900 shadow shadow-xl p-8 inline-flex text-xl gap-2.5 shadow items-center justify-between p-3 bg-white rounded-lg hover:bg-gray-200' placeholder="Type a short subject" type="text" name="subject"/>
                 </div>
                 <div class="text-gray-400 flex gap-2 flex-col">
                     <div class="font-semibold">Category</div>

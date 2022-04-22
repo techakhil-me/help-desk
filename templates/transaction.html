@@ -139,14 +139,18 @@
     <div class="p-8 flex flex-col w-full">
         <div class="flex gap-4 justify-between w-full">
             <div class="flex gap-4">
-                <div class="p-4 uppercase font-semibold bg-blue-200 rounded-lg">
+                <a href="/">
+                <div class="p-4 uppercase font-semibold hover:bg-blue-200 rounded-lg">
                     All
                 </div>
+            </a>
+                <div class="p-4 uppercase font-semibold bg-blue-200 rounded-lg">
+                    Transaction
+                </div>
                 {% for category in categories %} 
-                <a href="/{{category}}"><div class="p-4 uppercase font-semibold hover:bg-blue-200  rounded-lg">
+                <div class="p-4 uppercase font-semibold hover:bg-blue-200  rounded-lg">
                     {{category}}
                 </div>
-                </a>
                 {% endfor %}
                
             </div>
